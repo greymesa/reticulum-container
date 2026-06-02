@@ -162,7 +162,8 @@ build-tag(){
             $cacheflags \
             --load \
             --tag $target \
-            --file .tmp.dockerfile $(pwd)
+            --file .tmp.dockerfile $(pwd) \
+            --output type=image
         rm .hash
         rm .tmp.dockerfile
         docker push $target
