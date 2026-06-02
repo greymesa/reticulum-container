@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-ARG PYTHON=3.14
+ARG PYTHON=3.12
 ARG ALPINE=3.23
 FROM python:${PYTHON}-alpine${ALPINE}
 
