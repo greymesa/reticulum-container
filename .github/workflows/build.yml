@@ -26,7 +26,7 @@ jobs:
           echo 'EOF' >> $GITHUB_OUTPUT
   build:
     name: Publish ${{ matrix.image }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     continue-on-error: false
     needs: [setup]
     permissions:
