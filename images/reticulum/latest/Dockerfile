@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG PYTHON=3.14
 ARG ALPINE=3.23
-FROM python:${PYTHON}-alpine${ALPINE}
+FROM --platform=linux/arm64 python:${PYTHON}-alpine${ALPINE}
 
 COPY update /usr/local/bin/update
 
