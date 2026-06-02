@@ -9,9 +9,10 @@ RUN <<EOT
     py3-schedule \
     py3-requests \
     py3-mistune \
-    rust
-  pip install --root-user-action=ignore html-to-markdown
-  apk del --no-cache rust
+    rust \
+    cargo
+  pip install --root-user-action=ignore maturin html-to-markdown
+  apk del --no-cache rust cargo
 EOT
 
 RUN --mount=type=bind,source=config.py,destination=/config.py  <<EOT
