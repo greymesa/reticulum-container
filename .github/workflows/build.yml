@@ -50,10 +50,6 @@ jobs:
          registry: ghcr.io
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install chronic
-        uses: Eeems-Org/apt-cache-action@v1.5
-        with:
-          packages: moreutils
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
