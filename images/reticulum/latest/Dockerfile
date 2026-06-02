@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG PYTHON=3.14
 ARG ALPINE=3.23
-FROM --platform=linux/arm64 python:${PYTHON}-alpine${ALPINE}
+FROM python:${PYTHON}-alpine${ALPINE}
 
 COPY update /usr/local/bin/update
 
@@ -11,7 +11,7 @@ RUN <<EOT
   pip install --root-user-action=ignore \
     rns \
     lxmf
-  apk add --no-cache jq
+  apk add --no-cache jq gcompat
   ln -s /config /root/.reticulum
 EOT
 
