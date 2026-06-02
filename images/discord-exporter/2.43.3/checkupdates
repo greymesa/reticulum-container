@@ -1,2 +1,0 @@
-#!/bin/sh
-apk list --upgradable --no-cache | grep '\[upgradable from:' | cut -d' ' -f1
