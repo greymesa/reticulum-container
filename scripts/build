@@ -160,7 +160,6 @@ build-tag(){
             --build-arg "FROM=$from" \
             --platform "linux/amd64,linux/arm64" \
             $cacheflags \
-            --load \
             --tag $target \
             --file .tmp.dockerfile $(pwd) \
             --output type=image
