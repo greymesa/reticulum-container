@@ -11,7 +11,7 @@ RUN <<EOT
   pip install --root-user-action=ignore \
     rns \
     lxmf
-  apk add --no-cache jq gcompat
+  apk add --no-cache jq gcompat socat
   ln -s /config /root/.reticulum
 EOT
 
