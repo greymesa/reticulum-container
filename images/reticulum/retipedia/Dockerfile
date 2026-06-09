@@ -2,7 +2,9 @@
 ARG FROM
 FROM $FROM
 
-RUN  git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/storage/pages/retipedia 
+RUN apk add --no-cache git
+
+RUN git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/storage/pages/retipedia 
 
 COPY settings.py /config/storage/pages/retipedia/settings.py
 
