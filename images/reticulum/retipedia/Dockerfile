@@ -2,7 +2,7 @@
 ARG FROM
 FROM $FROM
 
-RUN apk add --no-cache git
+RUN apk add --no-cache git libstdc++ libgcc
 
 RUN git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/storage/pages/retipedia 
 
