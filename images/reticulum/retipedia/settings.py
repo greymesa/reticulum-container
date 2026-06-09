@@ -32,8 +32,6 @@ node_title = os.environ.get("NODE_NAME", "🬧 The NomadNet Encyclopedia")
 
 # The LXMF address of the Node operator - this is an optional field that can be toggled on / off to display on the about page
 if os.environ.get("LXMF_ADDRESS"):
-
-lxmf_address = os.environ.get("LXMF_ADDRESS")  
-
+    lxmf_address = os.environ.get("LXMF_ADDRESS")  
 else:
     lxmf_address = False
