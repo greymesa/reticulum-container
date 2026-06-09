@@ -2,10 +2,13 @@
 ARG FROM
 FROM $FROM
 
-RUN apk add --no-cache git libstdc++ libgcc
+RUN apk add --no-cache git
 
 RUN git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/storage/pages/retipedia 
 
+RUN pip install --root-user-action=ignore \
+    libzim beautifulsoup4
+    
 COPY settings.py /config/storage/pages/retipedia/settings.py
 
 RUN python3 /config/storage/pages/retipedia/generate_meta.py
@@ -15,7 +18,7 @@ RUN <<EOT
   mkdir /src
   cd src
   pip install --root-user-action=ignore \
-    nomadnet libzim beautifulsoup4
+    nomadnet
   echo "import nomadnet.ui as m;f=open(m.__file__, 'a');f.write(f'\n__all__ = {m.__all__}\n')" | python -u
   echo "import nomadnet.ui.textui as m;f=open(m.__file__, 'a');f.write(f'\n__all__ = {m.__all__}\n')" | python -u
   echo "from nomadnet.nomadnet import main; main()" > main.py
