@@ -8,10 +8,10 @@ RUN git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/storage
 
 RUN pip install --root-user-action=ignore \
     libzim beautifulsoup4
-    
+
 COPY settings.py /config/storage/pages/retipedia/settings.py
 
-RUN python3 /config/storage/pages/retipedia/generate_meta.py
+RUN mkdir -p /config/storage/zims
 
 RUN <<EOT
   set -e

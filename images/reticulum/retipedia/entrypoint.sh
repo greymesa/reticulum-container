@@ -1,4 +1,5 @@
 #!/bin/ash
+python3 /config/storage/pages/retipedia/generate_meta.py
 set -e
 source /setup
 if [ $# -ne 0 ]; then
