@@ -1,7 +1,7 @@
 services:
   rnsd:
     hostname: rnsd
-    image: eeems/reticulum:latest
+    image: ghcr.io/greymesa/reticulum:latest
     networks:
       reticulum:
         ipv4_address: 172.18.0.2
@@ -10,7 +10,7 @@ services:
 
   lxmd:
     hostname: lxmd
-    image: eeems/reticulum:lxmd
+    image: ghcr.io/greymesa/reticulum:lxmd
     networks: [reticulum]
     depends_on: [rnsd]
     volumes:
@@ -18,7 +18,7 @@ services:
 
   echobot:
     hostname: echobot
-    image: eeems/reticulum:echobot
+    image: ghcr.io/greymesa/reticulum:echobot
     networks: [reticulum]
     depends_on: [rnsd]
     volumes:
@@ -26,15 +26,28 @@ services:
 
   nomadnet:
     hostname: nomadnet
-    image: eeems/reticulum:nomadnet
+    image: ghcr.io/greymesa/reticulum:nomadnet
     networks: [reticulum]
     depends_on: [rnsd]
     volumes:
       - nomadnet-config:/config
 
+  retipedia:
+    hostname: retipedia
+    image: ghcr.io/greymesa/reticulum:retipedia
+    networks: [reticulum]
+    depends_on: [rnsd]
+    environment:
+      - NODE_NAME: my node name here
+      - LXMF_ADDRESS: your LXMF hash here
+      - ACCENT_COLOUR: red
+      - ZIMS_DIR: /config/storage/zims
+    volumes:
+      - retipedia-config:/config
+
   rrcd:
     hostname: rrcd
-    image: eeems/reticulum:rrcd
+    image: ghcr.io/greymesa/reticulum:rrcd
     networks: [reticulum]
     depends_on: [rnsd]
     environment:
@@ -45,7 +58,7 @@ services:
 
   teapot:
     hostname: teapot
-    image: eeems/reticulum:teapot
+    image: ghcr.io/greymesa/reticulum:teapot
     networks: [reticulum]
     depends_on: [rnsd]
     volumes:
@@ -55,7 +68,7 @@ services:
 
   rngit:
     hostname: rngit
-    image: eeems/reticulum:rngit
+    image: ghcr.io/greymesa/reticulum:rngit
     networks: [reticulum]
     depends_on: [rnsd]
     volumes:
@@ -70,7 +83,7 @@ services:
 
   retibbs:
     hostname: retibbs
-    image: eeems/reticulum:retibbs
+    image: ghcr.io/greymesa/reticulum:retibbs
     networks: [reticulum]
     depends_on: [rnsd]
     volumes:
@@ -82,6 +95,7 @@ volumes:
   lxmd-config:
   echobot-config:
   nomadnet-config:
+  retipedia-config:
   rrcd-config:
   teapot-config:
   rngit-config:
