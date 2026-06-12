@@ -1,5 +1,5 @@
 #!/bin/ash
-python3 /config/storage/pages/generate_meta.py
+python3 /config/nomadnetwork/storage/pages/generate_meta.py
 set -e
 source /setup
 if [ $# -ne 0 ]; then
