@@ -5,6 +5,7 @@ FROM $FROM
 RUN apk add --no-cache git
 
 RUN git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/nomadnetwork/storage/pages/
+RUN rm -rf /config/nomadnetwork/storage/pages/.git
 
 RUN pip install --root-user-action=ignore \
     libzim beautifulsoup4
