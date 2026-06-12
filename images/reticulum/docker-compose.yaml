@@ -42,6 +42,7 @@ services:
       LXMF_ADDRESS: your LXMF hash here
       ACCENT_COLOUR: red
       ZIMS_DIR: /config/nomadnetwork/storage/zims
+      RETIPEDIA_PAGES_DIR: /config/nomadnetwork/storage/pages
     volumes:
       - retipedia-config:/config
 

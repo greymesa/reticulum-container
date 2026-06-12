@@ -3,7 +3,7 @@ import os
 # This is the root path of where the Retipedia files are contained in the .nomadnetwork storage/pages folder.
 # In this example config, if your Retipedia folder is under .nomadnetwork/storage/pages/retipedia, then the root folder would be "retipedia"
 # You can adjust this if you want it to point at somewhere else outside of the parent folder
-root_folder = "retipedia"
+root_folder = os.environ.get("RETIPEDIA_PAGES_DIR", "retipedia")
 
 # Directory containing one or more .zim archives to host. When set, Retipedia lists
 # every .zim in this folder on the index page. Run generate_meta.py once after adding
