@@ -38,10 +38,10 @@ services:
     networks: [reticulum]
     depends_on: [rnsd]
     environment:
-      - NODE_NAME: my node name here
-      - LXMF_ADDRESS: your LXMF hash here
-      - ACCENT_COLOUR: red
-      - ZIMS_DIR: /config/storage/zims
+      NODE_NAME: my node name here
+      LXMF_ADDRESS: your LXMF hash here
+      ACCENT_COLOUR: red
+      ZIMS_DIR: /config/nomadnetwork/storage/zims
     volumes:
       - retipedia-config:/config
 

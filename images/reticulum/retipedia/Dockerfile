@@ -4,14 +4,14 @@ FROM $FROM
 
 RUN apk add --no-cache git
 
-RUN git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/storage/pages/retipedia 
+RUN git clone --depth 1 https://github.com/RFnexus/Retipedia.git /config/nomadnetwork/storage/pages/
 
 RUN pip install --root-user-action=ignore \
     libzim beautifulsoup4
 
-COPY settings.py /config/storage/pages/retipedia/settings.py
+COPY settings.py /config/nomadnetwork/storage/pages/settings.py
 
-RUN mkdir -p /config/storage/zims
+RUN mkdir -p /config/nomadnetwork/storage/zims
 
 RUN <<EOT
   set -e
